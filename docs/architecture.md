@@ -18,8 +18,8 @@ direction: the binary depends on the library crates, never the reverse.
 
 ```text
 discover manifests (walkdir)  ──►  parse (core::manifest)
-│                                 │
-▼                                 ▼
+│                │
+▼                ▼
 cache (db::cache)  ──►  AdvisoryDb  ──►  analyze (match + license + typosquat)
 │
 ▼
