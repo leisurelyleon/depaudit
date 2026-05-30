@@ -1,14 +1,12 @@
 //! `depaudit` command-line entry point.
 
-use depaudit_cli::cli::{self, Cli, Command};
-use depaudit_cli::commands;
-
 use std::process::ExitCode;
 
 use anyhow::Result;
 use clap::Parser;
 
-use crate::cli::{Cli, Command};
+use depaudit_cli::cli::{Cli, Command};
+use depaudit_cli::commands;
 
 #[tokio::main]
 async fn main() -> ExitCode {
