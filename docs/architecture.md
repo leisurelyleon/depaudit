@@ -16,7 +16,7 @@ direction: the binary depends on the library crates, never the reverse.
 
 ## Data flow
 
-```mermaid
+```text
 discover manifests (walkdir)  ──►  parse (core::manifest)
 │                                 │
 ▼                                 ▼
