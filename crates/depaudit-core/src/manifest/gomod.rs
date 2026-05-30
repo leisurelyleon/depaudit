@@ -2,8 +2,8 @@
 
 use std::collections::BTreeSet;
 
-use crate::model::{Dependency, Ecosystem};
 use crate::Result;
+use crate::model::{Dependency, Ecosystem};
 
 /// Parse a `go.mod`'s `require` directives (block and single-line forms).
 /// Module requirements are exact, so they are marked locked.
@@ -92,7 +92,8 @@ mod tests {
 
     #[test]
     fn collapses_go_sum_duplicates() {
-        let content = "github.com/pkg/errors v0.9.1 h1:abc=\ngithub.com/pkg/errors v0.9.1/go.mod h1:def=\n";
+        let content =
+            "github.com/pkg/errors v0.9.1 h1:abc=\ngithub.com/pkg/errors v0.9.1/go.mod h1:def=\n";
         let deps = parse_go_sum(content).unwrap();
         assert_eq!(deps.len(), 1);
         assert_eq!(deps[0].version, "v0.9.1");

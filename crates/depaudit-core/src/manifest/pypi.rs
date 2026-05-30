@@ -135,7 +135,10 @@ mod tests {
     #[test]
     fn strips_extras_and_markers() {
         let parsed = parse_requirement("uvicorn[standard]==0.29.0 ; python_version >= '3.8'");
-        assert_eq!(parsed, Some(("uvicorn".to_owned(), "0.29.0".to_owned(), true)));
+        assert_eq!(
+            parsed,
+            Some(("uvicorn".to_owned(), "0.29.0".to_owned(), true))
+        );
     }
 
     #[test]

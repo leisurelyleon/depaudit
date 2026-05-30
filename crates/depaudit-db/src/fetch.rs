@@ -142,11 +142,7 @@ fn map_response(response: OsvResponse, queried_name: &str, ecosystem: Ecosystem)
     let mut advisories = Vec::new();
 
     for vuln in response.vulns {
-        let severity = map_severity(
-            vuln.database_specific
-                .and_then(|d| d.severity)
-                .as_deref(),
-        );
+        let severity = map_severity(vuln.database_specific.and_then(|d| d.severity).as_deref());
 
         let mut matched = false;
         for affected in &vuln.affected {
@@ -273,15 +269,27 @@ mod tests {
     #[test]
     fn builds_bounded_range() {
         let events = vec![
-            OsvEvent { introduced: Some("1.0.0".into()), ..Default::default() },
-            OsvEvent { fixed: Some("1.2.0".into()), ..Default::default() },
+            OsvEvent {
+                introduced: Some("1.0.0".into()),
+                ..Default::default()
+            },
+            OsvEvent {
+                fixed: Some("1.2.0".into()),
+                ..Default::default()
+            },
         ];
-        assert_eq!(build_version_req(&events).as_deref(), Some(">=1.0.0, <1.2.0"));
+        assert_eq!(
+            build_version_req(&events).as_deref(),
+            Some(">=1.0.0, <1.2.0")
+        );
     }
 
     #[test]
     fn introduced_zero_means_all_versions() {
-        let events = vec![OsvEvent { introduced: Some("0".into()), ..Default::default() }];
+        let events = vec![OsvEvent {
+            introduced: Some("0".into()),
+            ..Default::default()
+        }];
         assert_eq!(build_version_req(&events).as_deref(), Some(">=0.0.0"));
     }
 

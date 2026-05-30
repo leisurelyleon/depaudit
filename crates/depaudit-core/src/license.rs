@@ -88,7 +88,9 @@ mod tests {
 
     #[test]
     fn flags_unlisted_license() {
-        let finding = LicensePolicy::default().evaluate(&dep(), "GPL-3.0").unwrap();
+        let finding = LicensePolicy::default()
+            .evaluate(&dep(), "GPL-3.0")
+            .unwrap();
         assert_eq!(finding.severity, Severity::Medium);
     }
 

@@ -1,7 +1,7 @@
 //! Human-readable, colored terminal output.
 
-use depaudit_core::model::Severity;
 use depaudit_core::Report;
+use depaudit_core::model::Severity;
 use owo_colors::OwoColorize;
 
 /// Render a report as a colored, human-friendly summary.

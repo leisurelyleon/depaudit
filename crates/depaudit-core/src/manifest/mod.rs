@@ -8,8 +8,8 @@ pub mod gomod;
 pub mod npm;
 pub mod pypi;
 
-use crate::model::{Dependency, Ecosystem};
 use crate::Result;
+use crate::model::{Dependency, Ecosystem};
 
 /// Identifies which manifest parser applies to a given file name.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -71,8 +71,14 @@ mod tests {
 
     #[test]
     fn recognizes_known_manifests() {
-        assert_eq!(ManifestKind::from_file_name("Cargo.toml"), Some(ManifestKind::CargoToml));
-        assert_eq!(ManifestKind::from_file_name("go.sum"), Some(ManifestKind::GoSum));
+        assert_eq!(
+            ManifestKind::from_file_name("Cargo.toml"),
+            Some(ManifestKind::CargoToml)
+        );
+        assert_eq!(
+            ManifestKind::from_file_name("go.sum"),
+            Some(ManifestKind::GoSum)
+        );
         assert_eq!(ManifestKind::from_file_name("random.txt"), None);
     }
 

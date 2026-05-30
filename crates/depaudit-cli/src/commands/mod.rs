@@ -9,11 +9,11 @@ use std::path::Path;
 use anyhow::{Context, Result};
 use walkdir::WalkDir;
 
-use depaudit_core::advisory::{match_dependency, AdvisoryDb};
+use depaudit_core::advisory::{AdvisoryDb, match_dependency};
 use depaudit_core::license::LicensePolicy;
 use depaudit_core::manifest::{self, ManifestKind};
 use depaudit_core::model::Dependency;
-use depaudit_core::{typosquat, Report};
+use depaudit_core::{Report, typosquat};
 
 use crate::config::Config;
 

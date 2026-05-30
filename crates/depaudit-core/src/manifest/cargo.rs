@@ -70,8 +70,14 @@ mod tests {
         "#;
         let deps = parse_cargo_toml(content).unwrap();
         assert_eq!(deps.len(), 2);
-        assert!(deps.iter().any(|d| d.name == "serde" && d.version == "1.0.197"));
-        assert!(deps.iter().any(|d| d.name == "tokio" && d.version == "1.36.0"));
+        assert!(
+            deps.iter()
+                .any(|d| d.name == "serde" && d.version == "1.0.197")
+        );
+        assert!(
+            deps.iter()
+                .any(|d| d.name == "tokio" && d.version == "1.36.0")
+        );
     }
 
     #[test]

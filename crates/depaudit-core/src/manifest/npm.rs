@@ -103,11 +103,17 @@ mod tests {
         }"#;
         let deps = parse_package_lock(content).unwrap();
         assert_eq!(deps.len(), 2);
-        assert!(deps.iter().any(|d| d.name == "@scope/util" && d.version == "2.0.0"));
+        assert!(
+            deps.iter()
+                .any(|d| d.name == "@scope/util" && d.version == "2.0.0")
+        );
     }
 
     #[test]
     fn derives_scoped_name() {
-        assert_eq!(package_name_from_path("node_modules/@scope/bar"), "@scope/bar");
+        assert_eq!(
+            package_name_from_path("node_modules/@scope/bar"),
+            "@scope/bar"
+        );
     }
 }

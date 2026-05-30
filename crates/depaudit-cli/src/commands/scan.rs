@@ -29,7 +29,9 @@ pub fn run(args: ScanArgs) -> Result<i32> {
 fn load_db() -> AdvisoryDb {
     let store = CacheStore::default_location();
     if !store.exists() {
-        eprintln!("warning: no advisory cache found; run `depaudit update-db` for vulnerability checks.");
+        eprintln!(
+            "warning: no advisory cache found; run `depaudit update-db` for vulnerability checks."
+        );
         return AdvisoryDb::default();
     }
     match store.load() {

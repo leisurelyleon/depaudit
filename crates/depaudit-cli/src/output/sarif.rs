@@ -4,14 +4,13 @@
 //! distinct finding kind, and one result per finding. This is what lets
 //! `depaudit` results appear natively in a repository's Security tab.
 
-use serde_json::{json, Value};
+use serde_json::{Value, json};
 
-use depaudit_core::model::{FindingKind, Severity};
 use depaudit_core::Report;
+use depaudit_core::model::{FindingKind, Severity};
 
 /// SARIF schema URL and version emitted in the log header.
-const SARIF_SCHEMA: &str =
-    "https://json.schemastore.org/sarif-2.1.0.json";
+const SARIF_SCHEMA: &str = "https://json.schemastore.org/sarif-2.1.0.json";
 const SARIF_VERSION: &str = "2.1.0";
 
 /// Render a report as a SARIF 2.1.0 JSON log.

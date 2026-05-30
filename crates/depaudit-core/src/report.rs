@@ -31,7 +31,10 @@ impl Report {
 
     /// Count of findings at a given severity.
     pub fn count_at(&self, severity: Severity) -> usize {
-        self.findings.iter().filter(|f| f.severity == severity).count()
+        self.findings
+            .iter()
+            .filter(|f| f.severity == severity)
+            .count()
     }
 
     /// Total number of findings.
@@ -59,7 +62,11 @@ mod tests {
     #[test]
     fn max_severity_picks_highest() {
         let mut r = Report::new();
-        r.extend_findings([finding(Severity::Low), finding(Severity::Critical), finding(Severity::Medium)]);
+        r.extend_findings([
+            finding(Severity::Low),
+            finding(Severity::Critical),
+            finding(Severity::Medium),
+        ]);
         assert_eq!(r.max_severity(), Some(Severity::Critical));
     }
 
