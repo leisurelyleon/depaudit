@@ -38,8 +38,5 @@ pub fn run(args: CheckArgs) -> Result<i32> {
 /// `scan` may diverge (e.g. `check` could later require a fresh cache).
 fn load_db() -> AdvisoryDb {
     let store = CacheStore::default_location();
-    match store.load() {
-        Ok(db) => db,
-        Err(_) => AdvisoryDb::default(),
-    }
+    store.load().unwrap_or_default()
 }
