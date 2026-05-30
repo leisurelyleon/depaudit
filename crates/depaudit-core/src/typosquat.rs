@@ -15,7 +15,7 @@ const MAX_DISTANCE: usize = 1;
 pub fn evaluate(dep: &Dependency, popular: &[&str]) -> Option<Finding> {
     let name = dep.name.as_str();
 
-    if popular.iter().any(|&p| p == name) {
+    if popular.contains(&name) {
         return None; // Exact match: legitimate.
     }
 
