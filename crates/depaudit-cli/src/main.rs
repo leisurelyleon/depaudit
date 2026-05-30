@@ -1,9 +1,7 @@
 //! `depaudit` command-line entry point.
 
-mod cli;
-mod commands;
-mod config;
-mod output;
+use depaudit_cli::cli::{self, Cli, Command};
+use depaudit_cli::commands;
 
 use std::process::ExitCode;
 
