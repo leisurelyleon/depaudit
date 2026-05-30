@@ -1,0 +1,8 @@
+[package]
+name = "clean-sample"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = "1.0.197"
+anyhow = "1.0.80"
