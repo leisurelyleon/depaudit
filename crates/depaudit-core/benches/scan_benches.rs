@@ -1,7 +1,7 @@
 //! Criterion benchmark for the Levenshtein typosquat primitive — the hottest
 //! inner loop when a large `popular_packages` list is configured.
 
-use criterion::{black_box, criterion_group, criterion_main, Criterion};
+use criterion::{Criterion, black_box, criterion_group, criterion_main};
 use depaudit_core::typosquat::levenshtein;
 
 fn bench_levenshtein(c: &mut Criterion) {
