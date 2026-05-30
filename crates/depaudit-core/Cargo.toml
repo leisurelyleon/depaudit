@@ -16,3 +16,8 @@ toml.workspace = true
 semver.workspace = true
 
 [dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+name = "scan_bench"
+harness = false
