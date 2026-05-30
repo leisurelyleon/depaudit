@@ -1,0 +1,16 @@
+[package]
+name = "depaudit-db"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Advisory database fetching and local caching for depaudit."
+
+[dependencies]
+depaudit-core = { path = "../depaudit-core" }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+reqwest.workspace = true
