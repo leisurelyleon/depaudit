@@ -1,0 +1,17 @@
+# Template Homebrew formula. The release workflow fills in VERSION and SHA256.
+class Depaudit < Formula
+  desc "Fast, offline-capable polyglot dependency & supply-chain auditor"
+  homepage "https://github.com/josephleoned/depaudit"
+  version "VERSION_PLACEHOLDER"
+  url "https://github.com/josephleoned/depaudit/releases/download/vVERSION_PLACEHOLDER/depaudit-aarch64-apple-darwin.tar.gz"
+  sha256 "SHA256_PLACEHOLDER"
+  license "MIT"
+
+  def install
+    bin.install "depaudit"
+  end
+
+  test do
+    system "#{bin}/depaudit", "--version"
+  end
+end
