@@ -16,6 +16,7 @@ direction: the binary depends on the library crates, never the reverse.
 
 ## Data flow
 
+```mermaid
 discover manifests (walkdir)  ──►  parse (core::manifest)
 │                                 │
 ▼                                 ▼
@@ -23,6 +24,7 @@ cache (db::cache)  ──►  AdvisoryDb  ──►  analyze (match + license + 
 │
 ▼
 Report  ──►  render (human | json | sarif)
+```
 
 ## Why this split
 
